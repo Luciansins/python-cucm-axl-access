@@ -9,8 +9,9 @@ As it's shown on the AXL documentation from Cisco's developer site, to access th
 
 ![Alt text](https://developer.cisco.com/media/axl-schema-11-0/Files/AXLSoap_p1020.png "List Line)")
 
-This is found on the code as the payload variable. 
-Once it's send as a HTTP POST request you will get the same The response will be in XML format. 
+This object can be found in the code as the payload variable.
+Once it's send as a HTTP POST request you will get the response in XML format with the aditional information that was missing
+in the original object.
 
 E.g: 
 ```xml
