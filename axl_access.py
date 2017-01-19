@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#Python approach to access the AXL API on the CUCM
+#Python approach to access the AXL API on the CUCM by Lucian Sins
 import base64
 import requests
 #To disable the warning "InsecureRequestWarning: Unverified HTTPS request is being made"
@@ -19,12 +19,6 @@ headers = {
   'Content-Type': 'text/xml; charset=utf-8'
 }
 
-#define a function to make the request
-def xml_request():
-  request = requests.post(cucmAxlUrl, headers=headers, verify=False, data=payload)
-  response = request.text
-  return response
-
 #xml payload that will be sent to the CUCM AXL API
 payload = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:axl="http://www.cisco.com/AXL/API/9.1">
    <soapenv:Header/>
@@ -42,6 +36,12 @@ payload = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/en
     </axl:listLine>
    </soapenv:Body>
 </soapenv:Envelope>"""
+#define a function to make the request
+
+def axl_request(data_payload):
+  request = requests.post(cucmAxlUrl, headers=headers, verify=False, data_payload=payload)
+  this_response = request.text
+  return this_response
 
 #print the response
-print xml_request()
+print axl_request(payload)
