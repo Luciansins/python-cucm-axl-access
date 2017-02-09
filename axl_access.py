@@ -39,7 +39,7 @@ payload = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/en
 #define a function to make the request
 
 def axl_request(data_payload):
-  request = requests.post(cucmAxlUrl, headers=headers, verify=False, data_payload=payload)
+  request = requests.post(cucmAxlUrl, headers=headers, verify=False, data=data_payload)
   this_response = request.text
   return this_response
 
